@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql
+  labels:
+    app: postgresql
+    ip: 192.168.179.205
+spec:
+  destination:
+    name: ''
+    namespace: postgresql
+    server: https://kubernetes.default.svc
+  source:
+    path: .
+    repoURL: https://github.com/maartenor/postgresql
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
