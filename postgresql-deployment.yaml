@@ -22,8 +22,8 @@ metadata:
     app: postgres
 data:
   POSTGRES_DB: ps_db_dev
-  POSTGRES_USER: {{ .POSTGRES_USER | b64enc }}     # Base64-encoded GitHub Secret
-  POSTGRES_PASSWORD: {{ .POSTGRES_PASSWORD | b64enc }}  # Base64-encoded GitHub Secret
+  POSTGRES_USER: ps_user     # Base64-encoded GitHub Secret
+  POSTGRES_PASSWORD: ps_password  # Base64-encoded GitHub Secret
 
 ---
 apiVersion: v1
@@ -117,7 +117,7 @@ spec:
           emptyDir: {}
       nodeSelector:
         node-type-2: rpiCM4
-        kubernetes.io/hostname: {{ .TARGET_NODE }}  # always start on K3s node rpiCM4-2
+        kubernetes.io/hostname: rpiCM4-2  # always start on K3s node rpiCM4-2
 
 ---
 apiVersion: v1
