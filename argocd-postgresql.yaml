@@ -15,7 +15,7 @@ spec:
     repoURL: https://github.com/maartenor/postgresql
     targetRevision: HEAD
   sources: []
-  project: default
+  project: postgresql
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
